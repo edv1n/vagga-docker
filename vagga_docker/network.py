@@ -72,6 +72,9 @@ def _find_all_exposed_ports(vagga):
 
 
 def _exposed_ports(commands):
+    # commands could be None
+    if commands == None:
+        return
     for cmd in commands.values():
         # allow expose ports in the command
         yield from _get_ports(cmd)
